@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  color: #333;
+  overflow: hidden;
+}
+
+.error-container {
+  max-width: 500px;
+  padding: 20px;
+  position: relative;
+  z-index: 10;
+}
+
+/* Smooth floating laptop animation */
+.laptop-container {
+  position: relative;
+  display: inline-block;
+  animation: float 3.5s ease-in-out infinite;
+}
+
+.laptop {
+  width: 200px;
+  height: auto;
+  filter: drop-shadow(0 5px 10px rgba(0, 0, 0, 0.2));
+}
+
+/* Floating symbols with smooth motion */
+.float-symbol {
+  position: absolute;
+  font-weight: bold;
+  color: olivedrab;
+  font-size: 20px;
+  animation: floatSymbol 5s ease-in-out infinite;
+}
+
+.float-symbol.code {
+  top: -15px;
+  right: -35px;
+  animation-delay: 1.5s;
+}
+
+.float-symbol:not(.code) {
+  top: -20px;
+  left: -30px;
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
+
+p {
+  font-size: 1rem;
+  margin: 10px 0 20px;
+}
+
+.btn-back {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: olivedrab;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-back:hover {
+  background-color: #556b2f;
+}
+
+/* Animations */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes floatSymbol {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-12px) rotate(4deg);
+  }
+}
+
+/* Mobile Optimization */
+@media (max-width: 576px) {
+  .laptop {
+    width: 150px;
+  }
+
+  .float-symbol {
+    font-size: 16px;
+  }
+
+  h1 {
+    font-size: 1.2rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+}
