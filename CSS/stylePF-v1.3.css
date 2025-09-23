@@ -472,13 +472,15 @@ nav {
 }
 
 .project-description {
-    max-height: 60px; /* Show only a few lines initially */
+    max-height: 60px;
+    /* Show only a few lines initially */
     overflow: hidden;
     transition: max-height 0.3s ease;
 }
 
 .project-description.expanded {
-    max-height: 500px; /* Large enough for full text */
+    max-height: 500px;
+    /* Large enough for full text */
 }
 
 /* .github-stats {
@@ -792,6 +794,57 @@ body.dark-mode .nav-link:hover {
     color: #bbb;
 }
 
+.dark-mode .profile-pic-background {
+    position: relative;
+    /* <--- Important: contain ::before/::after */
+    width: 410px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    /* perfect circle */
+    background: url("../Images/WhatsApp_Profile_Image.jpeg") no-repeat center;
+    background-size: cover;
+    margin: 0 auto;
+    z-index: 1;
+    /* make sure image sits above glow */
+    overflow: visible;
+    /* keeps glow aligned with circle */
+}
+
+.dark-mode .profile-pic-background .glow::before,
+.dark-mode .profile-pic-background.glow::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    /* make glow follow circle shape */
+    background: linear-gradient(45deg, white, olivedrab, whitesmoke, olive, olivedrab, white, olivedrab, whitesmoke, olive, olivedrab);
+    background-size: 400%;
+    z-index: -1;
+    animation: glowAnimate 20s linear infinite;
+}
+
+@keyframes glowAnimate {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 400% 0;
+    }
+
+    100% {
+        background-position: 0 0;
+    }
+}
+
+.dark-mode .profile-pic-background.glow::after {
+    filter: blur(40px);
+    opacity: 0.27;
+}
+
 body.dark-mode .project-card,
 body.dark-mode .contact,
 body.dark-mode .footer {
@@ -817,8 +870,10 @@ body.dark-mode .view-project-btn {
 }
 
 body.dark-mode .read-more-btn {
-    display: inline-block; /* Prevents full-width stretching */
-    width: auto;           /* Keeps size to text only */
+    display: inline-block;
+    /* Prevents full-width stretching */
+    width: auto;
+    /* Keeps size to text only */
     color: white;
 }
 
