@@ -400,10 +400,88 @@ nav {
     }
 }
 
+/* Infinite Scroll Container */
+.scroll-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Fade effect on both sides */
+.scroll-wrapper::before,
+.scroll-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 80px; /* fade width */
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.scroll-wrapper::before {
+  left: 0;
+  background: linear-gradient(to right, #f8f8f8 30%, transparent 100%);
+}
+
+.scroll-wrapper::after {
+  right: 0;
+  background: linear-gradient(to left, #f8f8f8 30%, transparent 100%);
+}
+
+/* Scrolling row */
+.scrolling-items {
+  display: flex;
+  gap: 20px;
+  animation: scroll 14s linear infinite;
+}
+
+/* Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Hover pause */
+.scroll-wrapper:hover .scrolling-items {
+  animation-play-state: paused;
+}
+
+/* Front-End scrolls Right → Left
+.frontend-scroll .scrolling-items {
+  animation: scroll-left 14s linear infinite;
+}
+
+/* Back-End scrolls Left → Right */
+.backend-scroll .scrolling-items {
+  animation: scroll-right 14s linear infinite;
+}
+
+/* Animations */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+/* Hover pause (both still pause) */
+.scroll-wrapper:hover .scrolling-items {
+  animation-play-state: paused;
+} */
+
 .projects {
     padding: 100px;
     justify-content: center;
     align-items: center;
+    margin-top: 50px;
 }
 
 .projects-header {
@@ -894,6 +972,13 @@ body,
 .contact,
 .footer {
     transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-mode .scroll-wrapper::before {
+  background: linear-gradient(to right, #2b2b2b 30%, transparent 100%);
+}
+.dark-mode .scroll-wrapper::after {
+  background: linear-gradient(to left, #2b2b2b 30%, transparent 100%);
 }
 
 /* Remove transparent effect for navbar dropdown in mobile view */
