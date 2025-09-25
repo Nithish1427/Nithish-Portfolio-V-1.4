@@ -433,25 +433,9 @@ nav {
 .scrolling-items {
   display: flex;
   gap: 20px;
-  animation: scroll 14s linear infinite;
 }
 
-/* Animation */
-@keyframes scroll {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-/* Hover pause */
-.scroll-wrapper:hover .scrolling-items {
-  animation-play-state: paused;
-}
-
-/* Front-End scrolls Right → Left
+/* Front-End scrolls Right → Left */
 .frontend-scroll .scrolling-items {
   animation: scroll-left 14s linear infinite;
 }
@@ -475,7 +459,7 @@ nav {
 /* Hover pause (both still pause) */
 .scroll-wrapper:hover .scrolling-items {
   animation-play-state: paused;
-} */
+} 
 
 .projects {
     padding: 100px;
@@ -824,14 +808,23 @@ body.dark-mode {
 
 body.dark-mode .navbar {
     background-color: #2e2e2e !important;
+    border-bottom-color: olivedrab !important;
+}
+
+body.dark-mode .navbar-brand {
+    color: olivedrab !important;
+}
+
+body.dark-mode .navbar-brand:hover {
+    color: white !important;
 }
 
 body.dark-mode .nav-link {
-    color: #e0e0e0 !important;
+    color: olivedrab !important;
 }
 
 body.dark-mode .nav-link:hover {
-    color: olivedrab !important;
+    color: white !important;
 }
 
 /* Keep banner title & description same in both modes */
