@@ -309,7 +309,8 @@ nav {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     font-weight: 500;
-    min-width: 140px;
+    min-width: 200px;
+    min-height: 170px;
     text-align: center;
     transition: transform 0.3s ease-in-out;
     border-radius: 12px;
@@ -400,7 +401,7 @@ nav {
     }
 }
 
-/* Infinite Scroll Container */
+/* Infinite Scroll Container - Skills */
 .scroll-wrapper {
   width: 100%;
   overflow: hidden;
@@ -544,6 +545,67 @@ nav {
     max-height: 500px;
     /* Large enough for full text */
 }
+
+/* Infinite Scroll Container - Skills */
+/* .project-scroll-wrapper {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+} */
+
+/* Fade effect on both sides */
+/* .project-scroll-wrapper::before,
+   .project-scroll-wrapper::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 80px; /* fade width
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+} */
+
+.project-scroll-wrapper::before {
+  left: 0;
+  background: linear-gradient(to top, #f8f8f8 30%, transparent 100%);
+}
+
+.project-scroll-wrapper::after {
+  right: 0;
+  background: linear-gradient(to bottom, #f8f8f8 30%, transparent 100%);
+} */
+
+/* Scrolling row */
+/* .project-scrolling-items {
+  display: flex;
+  gap: 20px;
+} */
+
+/* Full Stack Projects scrolls Right → Left */
+/* .full-stack-scroll .project-scrolling-items {
+  animation: scroll-top 27s linear infinite;
+} */
+
+/* Front-End Projects scrolls Left → Right */
+/* .front-end-scroll .project-scrolling-items {
+  animation: scroll-bottom 27s linear infinite;
+} */
+
+/* Animations */
+/* @keyframes scroll-top {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-50%); }
+}
+
+@keyframes scroll-bottom {
+  0% { transform: translateY(-50%); }
+  100% { transform: translateY(0); }
+} */
+
+/* Hover pause (both still pause) */
+/* .project-scroll-wrapper:hover .project-scrolling-items {
+  animation-play-state: paused;
+}  */
 
 /* .github-stats {
     font-size: 14px;
