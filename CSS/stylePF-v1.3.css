@@ -463,6 +463,7 @@ nav {
 } 
 
 .projects {
+    height: 1400px;
     padding: 100px;
     justify-content: center;
     align-items: center;
@@ -546,67 +547,6 @@ nav {
     /* Large enough for full text */
 }
 
-/* Infinite Scroll Container - Skills */
-/* .project-scroll-wrapper {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-} */
-
-/* Fade effect on both sides */
-/* .project-scroll-wrapper::before,
-   .project-scroll-wrapper::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 80px; /* fade width
-  height: 100%;
-  z-index: 2;
-  pointer-events: none;
-} */
-
-.project-scroll-wrapper::before {
-  left: 0;
-  background: linear-gradient(to top, #f8f8f8 30%, transparent 100%);
-}
-
-.project-scroll-wrapper::after {
-  right: 0;
-  background: linear-gradient(to bottom, #f8f8f8 30%, transparent 100%);
-} */
-
-/* Scrolling row */
-/* .project-scrolling-items {
-  display: flex;
-  gap: 20px;
-} */
-
-/* Full Stack Projects scrolls Right → Left */
-/* .full-stack-scroll .project-scrolling-items {
-  animation: scroll-top 27s linear infinite;
-} */
-
-/* Front-End Projects scrolls Left → Right */
-/* .front-end-scroll .project-scrolling-items {
-  animation: scroll-bottom 27s linear infinite;
-} */
-
-/* Animations */
-/* @keyframes scroll-top {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-50%); }
-}
-
-@keyframes scroll-bottom {
-  0% { transform: translateY(-50%); }
-  100% { transform: translateY(0); }
-} */
-
-/* Hover pause (both still pause) */
-/* .project-scroll-wrapper:hover .project-scrolling-items {
-  animation-play-state: paused;
-}  */
-
 /* .github-stats {
     font-size: 14px;
     color: olive;
@@ -653,6 +593,46 @@ nav {
     background-color: #556b2f;
     /* slightly darker olive */
 }
+
+.projects-3d {
+  position: relative;
+  width: 100%;
+  height: 800px; /* enough height for cards */
+  perspective: 1200px;
+  overflow: hidden;
+}
+
+.projects-slider {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform-style: preserve-3d;
+  transform: translate(-50%, -50%) rotateX(-10deg);
+  animation: rotateProjects 25s linear infinite;
+  width: 250px; /* width of cards */
+  height: 350px; /* height of cards */
+}
+
+.projects-slider .item {
+  position: absolute;
+  inset: 0;
+  transform:
+    rotateY(calc((var(--position) - 1) * (360deg / var(--quantity))))
+    translateZ(800px); /* distance from center */
+}
+
+@keyframes rotateProjects {
+  from {
+    transform: translate(-50%, -50%) rotateX(-4deg) rotateY(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotateX(-4deg) rotateY(360deg);
+  }
+}
+
+.projects-3d:hover .projects-slider {
+  animation-play-state: paused;
+} 
 
 /* Small devices (mobile) - 1 card per row */
 @media (max-width: 767px) {
